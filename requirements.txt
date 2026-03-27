@@ -1,6 +1,6 @@
-pandas
-numpy
+dash==4.1.0
+dash-mantine-components==2.6.1
+pandas==2.3.3
+numpy==2.2.6
+scikit-learn==1.7.2
 plotly
-dash
-scikit-learn
-dash-mantine-components
