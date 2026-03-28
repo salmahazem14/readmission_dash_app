@@ -1,5 +1,5 @@
 [deploy]
-startCommand = "gunicorn readmission_model:server --bind 0.0.0.0:8080 --workers 1 --preload"
+startCommand = "python readmission_model.py"
 healthcheckPath = "/"
 healthcheckTimeout = 30
 numReplicas = 1
