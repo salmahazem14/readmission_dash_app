@@ -230,10 +230,10 @@ from dash import Dash, html , dcc, Output, Input , ctx ,clientside_callback
 import dash_bootstrap_components as dbc
 import xgboost as xgb
 
-# _HERE = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 saved_clf = xgb.XGBClassifier()
-saved_clf.load_model("xgboost_model.json")
+saved_clf.load_model(os.path.join(BASE_DIR, "xgboost_model.json"))
 
 label_encoder = LabelEncoder()
 label_encoder.classes_ = np.array(["<30", ">30", "NO"])
