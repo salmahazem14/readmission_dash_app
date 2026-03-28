@@ -9,10 +9,17 @@ from sklearn.preprocessing import LabelEncoder
 import os
 import dash_mantine_components as dmc
 import plotly.express as px
+from dash import Dash, html , dcc, Output, Input , ctx ,clientside_callback
+import dash_bootstrap_components as dbc
+import xgboost as xgb
+
+app = Dash(__name__, external_stylesheets=[dbc.themes.LITERA], suppress_callback_exceptions=True)
+server = app.server
 
 
-df = pd.read_csv("dataset/train.csv")
-print(df.head())
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+df = pd.read_csv(os.path.join(BASE_DIR, "dataset", "train.csv"))
 
 
 df.loc[df["max_glu_serum"].isna() , "max_glu_serum"] = "Not Measured"  #Imputed the nan values with not measured
@@ -226,10 +233,6 @@ readmitted_count=df["readmitted"].value_counts().count
 days_outcome = df.groupby("readmitted")["time_in_hospital"].mean()
 
 
-from dash import Dash, html , dcc, Output, Input , ctx ,clientside_callback
-import dash_bootstrap_components as dbc
-import xgboost as xgb
-
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 saved_clf = xgb.XGBClassifier()
@@ -239,8 +242,6 @@ label_encoder = LabelEncoder()
 label_encoder.classes_ = np.array(["<30", ">30", "NO"])
 
 
-app = Dash(__name__, external_stylesheets=[dbc.themes.LITERA], suppress_callback_exceptions=True)
-server = app.server
 
 
 #PLOTS
