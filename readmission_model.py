@@ -1,8 +1,5 @@
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
-import matplotlib as mpl
-import seaborn as sns
 import plotly.graph_objects as go
 from dash import Dash, html
 from sklearn.preprocessing import LabelEncoder
