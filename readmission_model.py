@@ -240,6 +240,8 @@ label_encoder.classes_ = np.array(["<30", ">30", "NO"])
 
 
 app = Dash(__name__, external_stylesheets=[dbc.themes.LITERA], suppress_callback_exceptions=True)
+server = app.server
+
 
 #PLOTS
 
