@@ -965,6 +965,6 @@ print("Hi 6")
 if __name__ == "__main__":
     app.run(
         host="0.0.0.0",                 # bind to all network interfaces
-        port=int(os.environ.get("PORT", 8080)),  # use Render's assigned port
+        port=os.environ.get("PORT"),  # use Render's assigned port
         debug=False
     )
