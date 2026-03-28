@@ -7,3 +7,4 @@ dash
 scikit-learn
 dash-mantine-components
 dash_bootstrap_components
+xgboost
