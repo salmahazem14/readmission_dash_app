@@ -242,7 +242,7 @@ label_encoder = LabelEncoder()
 label_encoder.classes_ = np.array(["<30", ">30", "NO"])
 
 
-
+print("After label encoding")
 
 #PLOTS
 
@@ -541,6 +541,8 @@ DEFAULT_SLIDER_COLOR = "#4FA645"
 # All numeric slider IDs – drives both layout and callback outputs
 SLIDER_IDS = ["inpatient", "emergency", "meds", "time", "diagnoses", "labs"]
 
+print("Hi 2 ")
+
 
 def dmc_slider(label, sid, min_, max_, value):
     return html.Div([
@@ -823,6 +825,8 @@ _INPUTS = [
     Input("a1c",       "value"),
 ]
 
+print("Hi 3")
+
 
 # ── Callback 1 – thermometer + store + one color Output per slider ────────────
 # Exactly mirrors the reference pattern: Output("slider", "color") per slider.
@@ -871,6 +875,9 @@ clientside_callback(
 PAGES = {"dashboard": "Dashboard", "inference": "Inference"}
 NAV_ICONS = {"dashboard": "▦", "inference": "⟳"}
 
+print("Hi 4")
+
+
 app.layout = html.Div([
     dcc.Store(id="active-page", data="dashboard"),
 
@@ -911,6 +918,8 @@ app.layout = html.Div([
         }),
     ], style={"display": "flex", "height": "100vh"})
 ])
+
+print("Hi 5")
 
 # Switch page
 @app.callback(
@@ -953,6 +962,7 @@ def highlight_nav(active):
         for key in PAGES
     ]
 
+print("Hi 6")
 
     
 if __name__ == "__main__":
