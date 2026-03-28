@@ -21,12 +21,12 @@ df = pd.read_csv(os.path.join(BASE_DIR, "dataset", "train.csv"))
 
 df.loc[df["max_glu_serum"].isna() , "max_glu_serum"] = "Not Measured"  #Imputed the nan values with not measured
 
-df["medical_specialty"].replace("?", "Unknown", inplace=True)
-df['payer_code'].replace('?', 'Unknown', inplace=True)
-df['weight'].replace('?', 'Unknown', inplace=True)
-df["race"].replace("?", "Unknown", inplace=True)
+df["medical_specialty"] = df["medical_specialty"].replace("?", "Unknown")
+df['payer_code'] = df['payer_code'].replace('?', 'Unknown')
+df['weight'] = df['weight'].replace('?', 'Unknown')
+df["race"] = df["race"].replace("?", "Unknown")
 for col in ["diag_1", "diag_2", "diag_3"]:
-    df[col].replace("?", "Unknown", inplace=True)
+    df[col] = df[col].replace("?", "Unknown")
 
 print((df=="?").sum())
 
